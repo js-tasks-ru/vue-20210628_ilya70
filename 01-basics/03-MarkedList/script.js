@@ -37,10 +37,9 @@ const RootAppComponent = defineComponent({
     };
   },
   computed: {
-    searchResult() {
-      const filter = this.emails.filter((el) => el.toUpperCase().includes(this.searchInput.toUpperCase()));
+    filteredEmails() {
       if (this.searchInput.length === 0) return [];
-      return filter;
+      return this.emails.filter((el) => el.toUpperCase().includes(this.searchInput.toUpperCase()));
     },
   },
 });
