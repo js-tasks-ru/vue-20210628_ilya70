@@ -42,13 +42,6 @@ const RootAppComponent = defineComponent({
       if (this.searchInput.length === 0) return [];
       return filter;
     },
-    markedItemsIndexes() {
-      const f = [];
-      for (let i = this.searchResult.length; i--; ) {
-        f.push(this.emails.indexOf(this.searchResult[i]));
-      }
-      return f;
-    },
   },
 });
 
