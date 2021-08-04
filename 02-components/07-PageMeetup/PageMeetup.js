@@ -23,7 +23,7 @@ export default defineComponent({
   data() {
     return {
       meetup: null,
-      state: 'loading',
+      state: null,
       error: null,
     };
   },
@@ -40,6 +40,10 @@ export default defineComponent({
 
   methods: {
     fetchMeetup() {
+      this.meetup = null;
+      this.state = 'loading';
+      this.error = null;
+
       fetchMeetupById(this.meetupId).then(
         (meetup) => {
           this.meetup = meetup;
