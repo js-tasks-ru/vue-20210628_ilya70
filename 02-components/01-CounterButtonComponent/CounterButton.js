@@ -8,5 +8,17 @@ export default defineComponent({
   // Шаблон лучше держать максимально простым, а логику выносить в методы
 
   // Шаблон потребуется отредактировать
-  template: `<button type="button">1</button>`,
+  props: {
+    count: {
+      type: Number,
+      default: 0,
+    },
+  },
+  emits: { 'update:count': null },
+  methods: {
+    handleCount() {
+      this.$emit('update:count', this.count + 1);
+    },
+  },
+  template: `<button type="button" @click="handleCount">{{ count }}</button>`,
 });
